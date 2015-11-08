@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^qrcode.jpg qrcode.php [NC,L]
