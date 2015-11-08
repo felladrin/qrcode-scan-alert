@@ -1,5 +1,4 @@
 <?php
-
 mail_utf8(
 	'john@doe.com',         // Recipient mail.
 	'John Doe',             // Recipient name.
@@ -15,15 +14,10 @@ header("Location: http://www.google.com/"); // The URL to redirect the vistor.
  */
 function mail_utf8($to, $from_name, $from_email, $subject = '(No subject)', $message = '', $cc = '', $bcc = '')
 {
-    $from_name = "=?UTF-8?B?".base64_encode($from_name)."?=";
-    $subject = "=?UTF-8?B?".base64_encode($subject)."?=";
-    $headers = "MIME-Version: 1.0" . "\r\n" . "Content-type: text/html; charset=UTF-8" . "\r\n" . "From: $from_name <$from_email>\r\n";
-
-    if (!empty($cc))
-        $headers .= 'Cc: ' . $cc . "\r\n";
-
-    if (!empty($bcc))
-        $headers .= 'Bcc: ' . $bcc . "\r\n";
-
-    return mail($to, $subject, $message, $headers);
+	$from_name = "=?UTF-8?B?".base64_encode($from_name)."?=";
+	$subject = "=?UTF-8?B?".base64_encode($subject)."?=";
+	$headers = "MIME-Version: 1.0" . "\r\n" . "Content-type: text/html; charset=UTF-8" . "\r\n" . "From: $from_name <$from_email>\r\n";
+	if (!empty($cc)) $headers .= 'Cc: ' . $cc . "\r\n";
+	if (!empty($bcc)) $headers .= 'Bcc: ' . $bcc . "\r\n";
+	return mail($to, $subject, $message, $headers);
 }
