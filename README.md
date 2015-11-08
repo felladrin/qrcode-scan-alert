@@ -6,7 +6,7 @@ You can generate a QR Code at http://goqr.me/ pointing to `http://YourSite.com/q
 
 Also,  on `qrcode.php`, change the mail recipient info and the url to redirect the visitor.
 
-## Printing an image instead of redirecting
+### (Optional) Printing an image instead of redirecting
 
 If you want to show the user an image (jpg, png, gif) instead of redirecting. you can replace on `qrcode.php` the line:
 ```
