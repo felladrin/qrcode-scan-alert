@@ -7,7 +7,7 @@ mail_utf8(
 	'Someone has just scanned your QR Code!<br/><pre>' . print_r(array('HTTP_USER_AGENT' => $_SERVER['HTTP_USER_AGENT'], 'IP' => $_SERVER['REMOTE_ADDR']), true). '</pre>' // Mail content.
 );
 
-header("Location: http://www.google.com/"); // The URL to redirect the vistor.
+header("Location: http://www.example.com/"); // The URL to redirect the vistor.
 
 /**
  * Improved mail function to correctly send UTF-8 characters.
