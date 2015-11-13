@@ -1,9 +1,9 @@
 <?php
 mail_utf8(
-	'john@doe.com',         // Recipient mail.
-	'John Doe',             // Recipient name.
-	'alert@yoursite.com',   // Sender mail.
-	'QR Code Scan Alert',   // Mail title.
+	'john@doe.com',         // Receiver email.
+	'John Doe',             // Receiver name.
+	'alert@yoursite.com',   // Sender email.
+	'QR Code Scan Alert',   // Mail subject.
 	'Someone has just scanned your QR Code!<br/><pre>' . print_r(array('HTTP_USER_AGENT' => $_SERVER['HTTP_USER_AGENT'], 'IP' => $_SERVER['REMOTE_ADDR']), true). '</pre>' // Mail content.
 );
 
@@ -11,6 +11,16 @@ header("Location: http://www.example.com/"); // The URL to redirect the vistor.
 
 /**
  * Improved mail function to correctly send UTF-8 characters.
+ *
+ * @param string $to Receiver email.
+ * @param string $from_name Receiver name.
+ * @param string $from_email Sender email.
+ * @param string $subject Mail subject.
+ * @param string $message Mail content.
+ * @param string $cc CC emails.
+ * @param string $bcc BCC emails.
+ *
+ * @return bool true if the mail was successfully accepted for delivery, false otherwise.
  */
 function mail_utf8($to, $from_name, $from_email, $subject = '(No subject)', $message = '', $cc = '', $bcc = '')
 {
